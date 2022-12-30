@@ -50,40 +50,28 @@ function App() {
         });
     }
     const toggleTheme = () => {
-      if (todayWeather.weather === '') {
+      if (todayWeather.weather === '' || todayWeather.weather === 'clear') {
+        setTheme('default');
+      }else if (todayWeather.weather === 'rain') {
+        setTheme('rain');
+      }else if (todayWeather.weather === 'thunderstorm') {
+        setTheme('thunderstorm');
+      }else if (todayWeather.weather === 'drizzle') {
+        setTheme('drizzle');
+      }else if (todayWeather.weather === 'mist' || todayWeather.weather === 'fog') {
+        setTheme('mist');
+      }else if (todayWeather.weather === 'haze') {
+        setTheme('haze');
+      }else if (todayWeather.weather === 'snow') {
+        setTheme('snow');
+      }else if (todayWeather.weather === 'smoke') {
+        setTheme('smoke');
+      }else if (todayWeather.weather === 'clouds') {
+        setTheme('clouds');
+      }else {
         setTheme('default');
       }
-      if (todayWeather.weather === 'clouds') {
-        setTheme('clouds');
-      }
-      if (todayWeather.weather === 'rain') {
-        setTheme('rain');
-      }
-      if (todayWeather.weather === 'clear') {
-        setTheme('clear');
-      }
-      if (todayWeather.weather === 'thunderstorm') {
-        setTheme('thunderstorm');
-      }
-      if (todayWeather.weather === 'snow') {
-        setTheme('snow');
-      }
-      if (todayWeather.weather === 'drizzle') {
-        setTheme('drizzle');
-      }
-      else if (todayWeather.weather === 'mist') {
-        setTheme('mist');
-      }
-      if (todayWeather.weather === 'smoke') {
-        setTheme('smoke');
-      }
-      if (todayWeather.weather === 'fog') {
-        setTheme('fog');
-      }
-      if (todayWeather.weather === 'haze') {
-        setTheme('haze');
-      }
-      //, Dust, Sand, Ash, Squall, Tornado
+    
     }
 
     toggleTheme();
