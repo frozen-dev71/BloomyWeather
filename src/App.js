@@ -2,6 +2,9 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
+import GlobalStyles from "./core-ui/Globals";
+import { defaultWeather, clouds, rain, clear, thunderstorm, snow, drizzle, mist, smoke, fog, haze } from "./core-ui/Themes.weathers";
+
 
 function App() {
 
@@ -16,8 +19,27 @@ function App() {
   const [formError, setFormError] = useState({});
   const [noData, setNoData] = useState(false);
   
+  const handleSubmit = (e) => {
 
+    e.preventDefault();
+    setFormError(validateForm(formValue));
+    // setSubmit(true);
+    setSearchedLocation(formValue.searchedLocation);
+    setFormValue({ searchedLocation: "" });
+  }
+  const handleValidation = async (e) => {
+    const { name, value } = e.target;
+    setFormValue({ ...formValue, [name]: value });
+  }
+  const validateForm = (value) => {
+    let errors = {};
+    if (!value.searchedLocation) {
+      errors.searchedLocation = "Please enter a country name"
+    }
+    return errors;
+  }
 
+  const setWeather = theme === "rain" ? rain : theme === "clouds" ? clouds : theme === "clear" ? clear : theme === "thunderstorm" ? thunderstorm : theme === "snow" ? snow : theme === "drizzle" ? drizzle : theme === "mist" ? mist : theme === "smoke" ? smoke : theme === "haze" ? haze : theme === "fog" ? fog : defaultWeather;
 
   useEffect(() => {
     setLoading(true);
@@ -79,11 +101,11 @@ function App() {
     toggleTheme();
     return () => setSearchDone(false);
 
-  }, [searchDone, lat, lon, todayWeather, searchedLocation]);
+  }, [todayWeather,searchedLocation,searchDone, lat, lon]);
 
 
   return (
-    <ThemeProvider>
+    <ThemeProvider theme={setWeather}>
 
     </ThemeProvider>
   );
