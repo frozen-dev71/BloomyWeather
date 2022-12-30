@@ -9,7 +9,7 @@ import Main from "./components/main/Main";
 function App() {
 
   const [todayWeather, setTodayWeather] = useState({ name: "", country: "", temp: "", icon: "03d", weather: "", weatherDesc: "", feelsLike: "", humidity: "", wind: "", highest: "", lowest: "" });
-  const [searchedLocation, setSearchedLocation] = useState("Paris");
+  const [searchedLocation, setSearchedLocation] = useState("Vilnius");
   const [lat, setLat] = useState("");
   const [lon, setLon] = useState("");
   const [searchDone, setSearchDone] = useState(false);

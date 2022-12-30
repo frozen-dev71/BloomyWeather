@@ -13,7 +13,7 @@ import thunderstormImage from "../assets/images/weather/thunderstorm.webp";
 export const colorPallete = {
     default: "#196480",
     clouds: "#eaf4fb",
-	drizzle: "#10321C",
+	drizzle: "#fff",
     snow: "#076aac",
     mist: "#3b7689",
     rain: "#261B53",
