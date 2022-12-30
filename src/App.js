@@ -2,6 +2,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './App.css';
+import { ThemeProvider } from "styled-components";
 
 function App() {
 
@@ -16,6 +17,9 @@ function App() {
   const [formError, setFormError] = useState({});
   const [noData, setNoData] = useState(false);
   
+
+
+
   useEffect(() => {
     setLoading(true);
     setNoData(false);
@@ -71,7 +75,6 @@ function App() {
       }else {
         setTheme('default');
       }
-    
     }
 
     toggleTheme();
@@ -81,21 +84,9 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+
+    </ThemeProvider>
   );
 }
 
