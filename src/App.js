@@ -2,7 +2,6 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import GlobalStyles from "./core-ui/Globals";
 import { defaultWeather, clouds, rain, clear, thunderstorm, snow, drizzle, mist, smoke, fog, haze } from "./core-ui/Themes.weathers";
 import Main from "./components/main/Main";
 
@@ -107,7 +106,6 @@ function App() {
   return (
     <ThemeProvider theme={setWeather}>
      <BrowserRouter>
-       <GlobalStyles />
        <Routes>
           <Route path="/" element={<Main noData={noData} loading={loading} formError={formError} formValue={formValue} todayWeather={todayWeather} handleSubmit={handleSubmit} handleValidation={handleValidation} />} />
         </Routes>
